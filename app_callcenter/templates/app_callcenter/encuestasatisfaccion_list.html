@@ -1,10 +1,10 @@
 {% extends "app_callcenter/base.html" %}
 
-{% block title %}Lista de Encuestas de Satisfacción{% endblock %}
+{% block title %}Encuestas de Satisfacción{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Lista de Encuestas de Satisfacción</h1>
+    <h1>Encuestas de Satisfacción</h1>
     <a href="{% url 'app_callcenter:encuesta-create' %}" class="btn btn-primary">Registrar Nueva Encuesta</a>
 </div>
 
@@ -12,8 +12,11 @@
     <thead>
         <tr>
             <th>Llamada</th>
+            <th>Fecha de Encuesta</th>
             <th>Calificación General</th>
             <th>Calificación del Agente</th>
+            <th>Comentarios</th>
+            <th>Completada</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -21,17 +24,20 @@
         {% for encuesta in object_list %}
         <tr>
             <td>{{ encuesta.id_llamada }}</td>
+            <td>{{ encuesta.fecha_encuesta }}</td>
             <td>{{ encuesta.calificacion_general }}</td>
             <td>{{ encuesta.calificacion_agente }}</td>
+            <td>{{ encuesta.comentarios }}</td>
+            <td>{{ encuesta.fue_completada|yesno:"Sí,No" }}</td>
             <td>
-                <a href="{% url 'app_callcenter:encuesta-detail' encuesta.pk %}" class="btn btn-sm btn-info">Detalles</a>
-                <a href="{% url 'app_callcenter:encuesta-update' encuesta.pk %}" class="btn btn-sm btn-primary">Editar</a>
-                <a href="{% url 'app_callcenter:encuesta-delete' encuesta.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                <a href="{% url 'app_callcenter:encuesta-detail' encuesta.pk %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'app_callcenter:encuesta-update' encuesta.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'app_callcenter:encuesta-delete' encuesta.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
             </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="4" class="text-center">No hay encuestas registradas.</td>
+            <td colspan="7">No hay encuestas registradas.</td>
         </tr>
         {% endfor %}
     </tbody>

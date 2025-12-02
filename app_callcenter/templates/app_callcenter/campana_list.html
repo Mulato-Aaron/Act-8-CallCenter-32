@@ -1,20 +1,22 @@
 {% extends "app_callcenter/base.html" %}
 
-{% block title %}Lista de Campañas{% endblock %}
+{% block title %}Campañas{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Lista de Campañas</h1>
-    <a href="{% url 'app_callcenter:campana-create' %}" class="btn btn-primary">Registrar Nueva Campaña</a>
+    <h1>Campañas</h1>
+    <a href="{% url 'app_callcenter:campana-create' %}" class="btn btn-primary">Crear Campaña</a>
 </div>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Nombre</th>
-            <th>Tipo</th>
+            <th>Descripción</th>
             <th>Fecha de Inicio</th>
             <th>Fecha de Fin</th>
+            <th>Tipo</th>
+            <th>Presupuesto</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -22,18 +24,20 @@
         {% for campana in object_list %}
         <tr>
             <td>{{ campana.nombre_campana }}</td>
-            <td>{{ campana.tipo_campana }}</td>
+            <td>{{ campana.descripcion }}</td>
             <td>{{ campana.fecha_inicio }}</td>
             <td>{{ campana.fecha_fin }}</td>
+            <td>{{ campana.tipo_campana }}</td>
+            <td>{{ campana.presupuesto_campana }}</td>
             <td>
-                <a href="{% url 'app_callcenter:campana-detail' campana.pk %}" class="btn btn-sm btn-info">Detalles</a>
-                <a href="{% url 'app_callcenter:campana-update' campana.pk %}" class="btn btn-sm btn-primary">Editar</a>
-                <a href="{% url 'app_callcenter:campana-delete' campana.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                <a href="{% url 'app_callcenter:campana-detail' campana.pk %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'app_callcenter:campana-update' campana.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'app_callcenter:campana-delete' campana.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
             </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="5" class="text-center">No hay campañas registradas.</td>
+            <td colspan="7">No hay campañas registradas.</td>
         </tr>
         {% endfor %}
     </tbody>

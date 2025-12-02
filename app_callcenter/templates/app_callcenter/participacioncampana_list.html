@@ -1,4 +1,4 @@
-{% extends "app_callcenter/base.html" %}
+{% extends 'app_callcenter/base.html' %}
 
 {% block title %}Participaciones en Campañas{% endblock %}
 
@@ -15,26 +15,32 @@
             <th>Campaña</th>
             <th>Fecha de Inicio</th>
             <th>Fecha de Fin</th>
+            <th>Llamadas Realizadas</th>
+            <th>Éxitos</th>
+            <th>Tiempo Promedio de Llamada</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         {% for participacion in object_list %}
-            <tr>
-                <td>{{ participacion.id_agente }}</td>
-                <td>{{ participacion.id_campana }}</td>
-                <td>{{ participacion.fecha_inicio_participacion }}</td>
-                <td>{{ participacion.fecha_fin_participacion }}</td>
-                <td>
-                    <a href="{% url 'app_callcenter:participacion-detail' participacion.pk %}" class="btn btn-info btn-sm">Detalles</a>
-                    <a href="{% url 'app_callcenter:participacion-update' participacion.pk %}" class="btn btn-primary btn-sm">Editar</a>
-                    <a href="{% url 'app_callcenter:participacion-delete' participacion.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ participacion.id_agente }}</td>
+            <td>{{ participacion.id_campana }}</td>
+            <td>{{ participacion.fecha_inicio_participacion }}</td>
+            <td>{{ participacion.fecha_fin_participacion }}</td>
+            <td>{{ participacion.num_llamadas_realizadas }}</td>
+            <td>{{ participacion.num_exitos }}</td>
+            <td>{{ participacion.tiempo_promedio_llamada }}</td>
+            <td>
+                <a href="{% url 'app_callcenter:participacion-detail' participacion.pk %}" class="btn btn-info btn-sm">Detalles</a>
+                <a href="{% url 'app_callcenter:participacion-update' participacion.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'app_callcenter:participacion-delete' participacion.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
         {% empty %}
-            <tr>
-                <td colspan="5" class="text-center">No hay participaciones registradas.</td>
-            </tr>
+        <tr>
+            <td colspan="8">No hay participaciones registradas.</td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
