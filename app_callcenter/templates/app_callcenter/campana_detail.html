@@ -1,0 +1,25 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalles de la Campaña{% endblock %}
+
+{% block content %}
+<h1>Detalles de la Campaña</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ campana.nombre_campana }}</h5>
+        <p class="card-text"><strong>Descripción:</strong> {{ campana.descripcion }}</p>
+        <p class="card-text"><strong>Fecha de Inicio:</strong> {{ campana.fecha_inicio }}</p>
+        <p class="card-text"><strong>Fecha de Fin:</strong> {{ campana.fecha_fin }}</p>
+        <p class="card-text"><strong>Tipo de Campaña:</strong> {{ campana.tipo_campana }}</p>
+        <p class="card-text"><strong>Objetivo:</strong> {{ campana.objetivo }}</p>
+        <p class="card-text"><strong>Público Objetivo:</strong> {{ campana.publico_objetivo }}</p>
+        <p class="card-text"><strong>Presupuesto:</strong> ${{ campana.presupuesto_campana }}</p>
+    </div>
+</div>
+
+<a href="{% url 'app_callcenter:campana-list' %}" class="btn btn-secondary mt-3">Volver a la Lista</a>
+<a href="{% url 'app_callcenter:campana-update' campana.pk %}" class="btn btn-primary mt-3">Editar</a>
+<a href="{% url 'app_callcenter:campana-delete' campana.pk %}" class="btn btn-danger mt-3">Eliminar</a>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalles del Cliente{% endblock %}
+
+{% block content %}
+<h1>{{ cliente.nombre_empresa }}</h1>
+
+{% if cliente.foto %}
+<div class="mb-3 text-center">
+    <img src="{{ cliente.foto.url }}" alt="Foto de {{ cliente.nombre_empresa }}" class="img-fluid rounded" style="max-height: 250px; width: auto;">
+</div>
+{% endif %}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Contacto Principal</th>
+        <td>{{ cliente.contacto_principal }}</td>
+    </tr>
+    <tr>
+        <th>Email de Contacto</th>
+        <td>{{ cliente.email_contacto }}</td>
+    </tr>
+    <tr>
+        <th>Teléfono de Contacto</th>
+        <td>{{ cliente.telefono_contacto }}</td>
+    </tr>
+    <tr>
+        <th>Sector</th>
+        <td>{{ cliente.sector }}</td>
+    </tr>
+    <tr>
+        <th>Fecha de Registro</th>
+        <td>{{ cliente.fecha_registro }}</td>
+    </tr>
+    <tr>
+        <th>Historial de Problemas</th>
+        <td>{{ cliente.historial_problemas }}</td>
+    </tr>
+    <tr>
+        <th>Nivel de Satisfacción</th>
+        <td>{{ cliente.nivel_satisfaccion }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'app_callcenter:cliente-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+<a href="{% url 'app_callcenter:cliente-update' cliente.pk %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'app_callcenter:cliente-delete' cliente.pk %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}

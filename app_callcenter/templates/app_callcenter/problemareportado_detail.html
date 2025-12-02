@@ -1,0 +1,50 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalles del Problema Reportado{% endblock %}
+
+{% block content %}
+<h1>Detalles del Problema Reportado: {{ problema.id }}</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID del Problema</th>
+        <td>{{ problema.id }}</td>
+    </tr>
+    <tr>
+        <th>Llamada</th>
+        <td>{{ problema.id_llamada }}</td>
+    </tr>
+    <tr>
+        <th>Agente que Resolvió</th>
+        <td>{{ problema.id_agente_resolvio }}</td>
+    </tr>
+    <tr>
+        <th>Descripción del Problema</th>
+        <td>{{ problema.descripcion_problema }}</td>
+    </tr>
+    <tr>
+        <th>Estado del Problema</th>
+        <td>{{ problema.estado_problema }}</td>
+    </tr>
+    <tr>
+        <th>Fecha de Resolución Estimada</th>
+        <td>{{ problema.fecha_resolucion_estimada }}</td>
+    </tr>
+    <tr>
+        <th>Prioridad</th>
+        <td>{{ problema.prioridad }}</td>
+    </tr>
+    <tr>
+        <th>Tipo de Problema</th>
+        <td>{{ problema.tipo_problema }}</td>
+    </tr>
+    <tr>
+        <th>Comentarios de Resolución</th>
+        <td>{{ problema.comentarios_resolucion }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'app_callcenter:problema-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+<a href="{% url 'app_callcenter:problema-update' problema.pk %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'app_callcenter:problema-delete' problema.pk %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Participaciones en Campañas{% endblock %}
+
+{% block content %}
+<h1>Participaciones en Campañas</h1>
+
+<a href="{% url 'app_callcenter:participacion-create' %}" class="btn btn-primary mb-3">Añadir Participación</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Agente</th>
+            <th>Campaña</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for participacion in object_list %}
+            <tr>
+                <td>{{ participacion.id_agente }}</td>
+                <td>{{ participacion.id_campana }}</td>
+                <td>{{ participacion.fecha_inicio_participacion }}</td>
+                <td>{{ participacion.fecha_fin_participacion }}</td>
+                <td>
+                    <a href="{% url 'app_callcenter:participacion-detail' participacion.pk %}" class="btn btn-info btn-sm">Ver</a>
+                    <a href="{% url 'app_callcenter:participacion-update' participacion.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'app_callcenter:participacion-delete' participacion.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

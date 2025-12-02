@@ -1,0 +1,26 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalles de la Encuesta de Satisfacción{% endblock %}
+
+{% block content %}
+  <h1>Detalles de la Encuesta de Satisfacción</h1>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>ID de la Encuesta: {{ encuesta.id }}</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Llamada:</strong> {{ encuesta.id_llamada }}</p>
+      <p><strong>Calificación General:</strong> {{ encuesta.calificacion_general }}</p>
+      <p><strong>Calificación del Agente:</strong> {{ encuesta.calificacion_agente }}</p>
+      <p><strong>Resolución del Problema:</strong> {{ encuesta.resolucion_problema|yesno:"Sí,No" }}</p>
+      <p><strong>Comentarios Adicionales:</strong> {{ encuesta.comentarios_adicionales }}</p>
+      <p><strong>Fecha de la Encuesta:</strong> {{ encuesta.fecha_encuesta }}</p>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'app_callcenter:encuesta-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+        <a href="{% url 'app_callcenter:encuesta-update' encuesta.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'app_callcenter:encuesta-delete' encuesta.pk %}" class="btn btn-danger">Eliminar</a>
+    </div>
+  </div>
+{% endblock %}

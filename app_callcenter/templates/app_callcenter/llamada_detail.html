@@ -1,0 +1,58 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalles de la Llamada{% endblock %}
+
+{% block content %}
+<h1>Detalles de la Llamada: {{ llamada.id }}</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID de Llamada</th>
+        <td>{{ llamada.id }}</td>
+    </tr>
+    <tr>
+        <th>Cliente</th>
+        <td>{{ llamada.id_cliente }}</td>
+    </tr>
+    <tr>
+        <th>Agente</th>
+        <td>{{ llamada.id_agente }}</td>
+    </tr>
+    <tr>
+        <th>Fecha y Hora de Inicio</th>
+        <td>{{ llamada.fecha_hora_inicio }}</td>
+    </tr>
+    <tr>
+        <th>Fecha y Hora de Fin</th>
+        <td>{{ llamada.fecha_hora_fin }}</td>
+    </tr>
+    <tr>
+        <th>Duración (segundos)</th>
+        <td>{{ llamada.duracion_segundos }}</td>
+    </tr>
+    <tr>
+        <th>Tipo de Llamada</th>
+        <td>{{ llamada.tipo_llamada }}</td>
+    </tr>
+    <tr>
+        <th>Resultado de la Llamada</th>
+        <td>{{ llamada.resultado_llamada }}</td>
+    </tr>
+    <tr>
+        <th>Grabación (URL)</th>
+        <td><a href="{{ llamada.grabacion_url }}" target="_blank">{{ llamada.grabacion_url }}</a></td>
+    </tr>
+    <tr>
+        <th>Motivo de la Llamada</th>
+        <td>{{ llamada.motivo_llamada }}</td>
+    </tr>
+    <tr>
+        <th>Calificación del Cliente</th>
+        <td>{{ llamada.calificacion_cliente }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'app_callcenter:llamada-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+<a href="{% url 'app_callcenter:llamada-update' llamada.pk %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'app_callcenter:llamada-delete' llamada.pk %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}

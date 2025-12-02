@@ -1,0 +1,15 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+<h1>Confirmar Eliminación</h1>
+
+<p>¿Estás seguro de que quieres eliminar la campaña "{{ campana.nombre_campana }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'app_callcenter:campana-detail' campana.pk %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

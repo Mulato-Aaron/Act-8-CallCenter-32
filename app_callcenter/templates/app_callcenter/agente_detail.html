@@ -1,0 +1,58 @@
+{% extends 'app_callcenter/base.html' %}
+
+{% block content %}
+  <h1>Detalles del Agente</h1>
+
+  {% if agente.foto %}
+    <div class="mb-3 text-center">
+      <img src="{{ agente.foto.url }}" alt="Foto de {{ agente.nombre }}" class="img-fluid rounded" style="max-height: 250px; width: auto;">
+    </div>
+  {% endif %}
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Nombre</th>
+      <td>{{ agente.nombre }}</td>
+    </tr>
+    <tr>
+      <th>Apellido</th>
+      <td>{{ agente.apellido }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ agente.email }}</td>
+    </tr>
+    <tr>
+      <th>Teléfono</th>
+      <td>{{ agente.telefono }}</td>
+    </tr>
+    <tr>
+      <th>Fecha de Contratación</th>
+      <td>{{ agente.fecha_contratacion }}</td>
+    </tr>
+    <tr>
+      <th>Salario</th>
+      <td>{{ agente.salario }}</td>
+    </tr>
+    <tr>
+      <th>Turno</th>
+      <td>{{ agente.turno }}</td>
+    </tr>
+    <tr>
+      <th>Habilidades e Idiomas</th>
+      <td>{{ agente.habilidades_idiomas }}</td>
+    </tr>
+    <tr>
+      <th>Estado</th>
+      <td>{{ agente.estado_agente }}</td>
+    </tr>
+    <tr>
+      <th>DNI</th>
+      <td>{{ agente.dni }}</td>
+    </tr>
+  </table>
+
+  <a href="{% url 'app_callcenter:agente-update' agente.pk %}" class="btn btn-primary">Editar</a>
+  <a href="{% url 'app_callcenter:agente-delete' agente.pk %}" class="btn btn-danger">Eliminar</a>
+  <a href="{% url 'app_callcenter:agente-list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

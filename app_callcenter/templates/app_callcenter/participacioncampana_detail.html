@@ -1,0 +1,19 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Detalle de la Participación{% endblock %}
+
+{% block content %}
+<h1>Detalle de la Participación</h1>
+
+<p><strong>Agente:</strong> {{ participacion.id_agente }}</p>
+<p><strong>Campaña:</strong> {{ participacion.id_campana }}</p>
+<p><strong>Fecha de Inicio:</strong> {{ participacion.fecha_inicio_participacion }}</p>
+<p><strong>Fecha de Fin:</strong> {{ participacion.fecha_fin_participacion }}</p>
+<p><strong>Llamadas Realizadas:</strong> {{ participacion.num_llamadas_realizadas }}</p>
+<p><strong>Éxitos:</strong> {{ participacion.num_exitos }}</p>
+<p><strong>Tiempo Promedio por Llamada:</strong> {{ participacion.tiempo_promedio_llamada }} segundos</p>
+
+<a href="{% url 'app_callcenter:participacion-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+<a href="{% url 'app_callcenter:participacion-update' participacion.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'app_callcenter:participacion-delete' participacion.pk %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}

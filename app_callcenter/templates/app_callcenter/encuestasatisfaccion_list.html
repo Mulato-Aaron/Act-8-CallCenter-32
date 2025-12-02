@@ -1,0 +1,36 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Lista de Encuestas de Satisfacción{% endblock %}
+
+{% block content %}
+<h1>Lista de Encuestas de Satisfacción</h1>
+
+<a href="{% url 'app_callcenter:encuesta-create' %}" class="btn btn-primary mb-3">Registrar Nueva Encuesta</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID de la Encuesta</th>
+            <th>Llamada</th>
+            <th>Calificación General</th>
+            <th>Fecha de la Encuesta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for encuesta in object_list %}
+            <tr>
+                <td>{{ encuesta.id }}</td>
+                <td>{{ encuesta.id_llamada }}</td>
+                <td>{{ encuesta.calificacion_general }}</td>
+                <td>{{ encuesta.fecha_encuesta }}</td>
+                <td>
+                    <a href="{% url 'app_callcenter:encuesta-detail' encuesta.pk %}" class="btn btn-info btn-sm">Detalles</a>
+                    <a href="{% url 'app_callcenter:encuesta-update' encuesta.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'app_callcenter:encuesta-delete' encuesta.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'app_callcenter/base.html' %}
+
+{% block content %}
+  <h1>Eliminar Agente</h1>
+  <p>¿Estás seguro de que quieres eliminar a {{ object.nombre }} {{ object.apellido }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar Eliminación</button>
+  </form>
+  <a href="{% url 'app_callcenter:agente-detail' object.pk %}">Cancelar</a>
+{% endblock %}

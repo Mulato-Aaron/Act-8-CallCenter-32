@@ -1,0 +1,95 @@
+{% extends "app_callcenter/base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4">Bienvenido al Sistema de Gestión de Call Center</h1>
+            <p class="lead">Este sistema le permite gestionar de forma eficiente todos los aspectos de su call center.</p>
+            <hr class="my-4">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Agentes</h5>
+                    <a href="{% url 'app_callcenter:agente-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4322/4322992.png" class="img-fluid" alt="Agentes" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:agente-list' %}" class="btn btn-primary mt-3">Ir a Agentes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Clientes</h5>
+                    <a href="{% url 'app_callcenter:cliente-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" class="img-fluid" alt="Clientes" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:cliente-list' %}" class="btn btn-primary mt-3">Ir a Clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Llamadas</h5>
+                    <a href="{% url 'app_callcenter:llamada-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/126/126509.png" class="img-fluid" alt="Llamadas" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:llamada-list' %}" class="btn btn-primary mt-3">Ir a Llamadas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Problemas Reportados</h5>
+                    <a href="{% url 'app_callcenter:problema-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/9068/9068520.png" class="img-fluid" alt="Problemas Reportados" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:problema-list' %}" class="btn btn-primary mt-3">Ir a Problemas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Encuestas de Satisfacción</h5>
+                    <a href="{% url 'app_callcenter:encuesta-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2621/2621826.png" class="img-fluid" alt="Encuestas de Satisfacción" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:encuesta-list' %}" class="btn btn-primary mt-3">Ir a Encuestas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Campañas</h5>
+                    <a href="{% url 'app_callcenter:campana-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991144.png" class="img-fluid" alt="Campañas" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:campana-list' %}" class="btn btn-primary mt-3">Ir a Campañas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Participación en Campañas</h5>
+                    <a href="{% url 'app_callcenter:participacion-list' %}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3248/3248810.png" class="img-fluid" alt="Participación en Campañas" style="height: 150px;">
+                    </a>
+                    <a href="{% url 'app_callcenter:participacion-list' %}" class="btn btn-primary mt-3">Ir a Participaciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
