@@ -1,16 +1,23 @@
-{% extends "app_callcenter/base.html" %}
-
-{% block title %}Confirmar Eliminación de Encuesta{% endblock %}
+{% extends 'app_callcenter/base.html' %}
 
 {% block content %}
-  <h1>¿Estás seguro de que quieres eliminar esta encuesta?</h1>
-  <p><strong>ID de la Encuesta:</strong> {{ object.id }}</p>
-  <p><strong>Llamada:</strong> {{ object.id_llamada }}</p>
-  <p><strong>Calificación General:</strong> {{ object.calificacion_general }}</p>
-
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
-    <a href="{% url 'app_callcenter:encuesta-list' %}" class="btn btn-secondary">Cancelar</a>
-  </form>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">Eliminar Encuesta de Satisfacción</h1>
+        </div>
+        <div class="card-body">
+          <p>¿Estás seguro de que quieres eliminar la encuesta para la llamada <strong>{{ object.id_llamada }}</strong>?</p>
+          <form method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+            <a href="{% url 'app_callcenter:encuestasatisfaccion-detail' object.pk %}" class="btn btn-secondary">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

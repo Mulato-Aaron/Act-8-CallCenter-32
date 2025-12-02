@@ -25,7 +25,6 @@ class ClienteCallCenter(models.Model):
     fecha_registro = models.DateField(null=True, blank=True)
     historial_problemas = models.TextField(null=True, blank=True)
     nivel_satisfaccion = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-    foto = models.ImageField(upload_to='fotos_clientes/', null=True, blank=True)
 
     def __str__(self):
         return self.nombre_empresa

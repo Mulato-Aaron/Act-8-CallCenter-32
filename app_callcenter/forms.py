@@ -52,7 +52,6 @@ class ClienteForm(forms.ModelForm):
             'fecha_registro',
             'historial_problemas',
             'nivel_satisfaccion',
-            'foto',
         ]
         widgets = {
             'nombre_empresa': forms.TextInput(attrs={'class': 'form-control'}),
@@ -63,7 +62,6 @@ class ClienteForm(forms.ModelForm):
             'fecha_registro': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'historial_problemas': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'nivel_satisfaccion': forms.NumberInput(attrs={'class': 'form-control'}),
-            "foto": forms.FileInput(attrs={"class": "form-control"}),
         }
 class LlamadaForm(forms.ModelForm):
     class Meta:

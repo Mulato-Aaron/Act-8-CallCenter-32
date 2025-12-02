@@ -1,13 +1,23 @@
-{% extends "app_callcenter/base.html" %}
-
-{% block title %}Confirmar Eliminación{% endblock %}
+{% extends 'app_callcenter/base.html' %}
 
 {% block content %}
-  <h1>¿Estás seguro de que quieres eliminar el problema "{{ object.id }}"?</h1>
-  <form method="post">
-    {% csrf_token %}
-    <p>Esta acción no se puede deshacer.</p>
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a href="{% url 'app_callcenter:problema-detail' object.pk %}" class="btn btn-secondary">Cancelar</a>
-  </form>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">Eliminar Problema Reportado</h1>
+        </div>
+        <div class="card-body">
+          <p>¿Estás seguro de que quieres eliminar el problema <strong>{{ object.tipo_problema }}</strong> reportado en la llamada <strong>{{ object.id_llamada }}</strong>?</p>
+          <form method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+            <a href="{% url 'app_callcenter:problemareportado-detail' object.pk %}" class="btn btn-secondary">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

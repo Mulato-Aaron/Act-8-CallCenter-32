@@ -5,12 +5,6 @@
 {% block content %}
 <h1>{{ cliente.nombre_empresa }}</h1>
 
-{% if cliente.foto %}
-<div class="mb-3 text-center">
-    <img src="{{ cliente.foto.url }}" alt="Foto de {{ cliente.nombre_empresa }}" class="img-fluid rounded" style="max-height: 250px; width: auto;">
-</div>
-{% endif %}
-
 <table class="table table-bordered">
     <tr>
         <th>Contacto Principal</th>
