@@ -27,7 +27,7 @@
             {% endfor %}
             <div class="d-grid gap-2">
               <button type="submit" class="btn btn-primary">Guardar</button>
-              <a href="{% url 'app_callcenter:campana-list' %}" class="btn btn-secondary">Cancelar</a>
+              <a href="{% if object %}{% url 'app_callcenter:campana-detail' object.pk %}{% else %}{% url 'app_callcenter:campana-list' %}{% endif %}" class="btn btn-secondary">Cancelar</a>
             </div>
           </form>
         </div>
