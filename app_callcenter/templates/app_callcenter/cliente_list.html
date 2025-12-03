@@ -8,40 +8,42 @@
     <a href="{% url 'app_callcenter:cliente-create' %}" class="btn btn-primary">Crear Cliente</a>
 </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre de la Empresa</th>
-            <th>Contacto Principal</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Sector</th>
-            <th>Fecha de Registro</th>
-            <th>Nivel de Satisfacción</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for cliente in object_list %}
-        <tr>
-            <td>{{ cliente.nombre_empresa }}</td>
-            <td>{{ cliente.contacto_principal }}</td>
-            <td>{{ cliente.email_contacto }}</td>
-            <td>{{ cliente.telefono_contacto }}</td>
-            <td>{{ cliente.sector }}</td>
-            <td>{{ cliente.fecha_registro }}</td>
-            <td>{{ cliente.nivel_satisfaccion }}</td>
-            <td>
-                <a href="{% url 'app_callcenter:cliente-detail' cliente.pk %}" class="btn btn-info btn-sm">Detalles</a>
-                <a href="{% url 'app_callcenter:cliente-update' cliente.pk %}" class="btn btn-primary btn-sm">Editar</a>
-                <a href="{% url 'app_callcenter:cliente-delete' cliente.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="8">No hay clientes registrados.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre de la Empresa</th>
+                <th>Contacto Principal</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Sector</th>
+                <th>Fecha de Registro</th>
+                <th>Nivel de Satisfacción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in object_list %}
+            <tr>
+                <td>{{ cliente.nombre_empresa }}</td>
+                <td>{{ cliente.contacto_principal }}</td>
+                <td>{{ cliente.email_contacto }}</td>
+                <td>{{ cliente.telefono_contacto }}</td>
+                <td>{{ cliente.sector }}</td>
+                <td>{{ cliente.fecha_registro }}</td>
+                <td>{{ cliente.nivel_satisfaccion }}</td>
+                <td>
+                    <a href="{% url 'app_callcenter:cliente-detail' cliente.pk %}" class="btn btn-info btn-sm">Detalles</a>
+                    <a href="{% url 'app_callcenter:cliente-update' cliente.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'app_callcenter:cliente-delete' cliente.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No hay clientes registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
